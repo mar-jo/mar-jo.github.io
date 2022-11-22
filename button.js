@@ -1,4 +1,4 @@
-const Web3 = require('web3');
+const Web3 = require('Web3');
 var web3 = new Web3('https://goerli.etherscan.io');
 
 const button = document.getElementById('button');
