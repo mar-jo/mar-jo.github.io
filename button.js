@@ -1,12 +1,8 @@
-//const Web3 = require('Web3');
-const web3 = new Web3(new Web3.providers.HttpProvider("http://mar-jo.github.io"));
+let provider = new ethers.providers.Web3Provider(window.ethereum)
+let signer
 
-//var web3 = new Web3('https://goerli.etherscan.io');
-
-
-const button = document.getElementById('button');
-button.addEventListener('click', () => {
-    contract.methods
-        .web3.eth.getBlockNumber()
-        .then(console.log);
-    });
+async function connectMetamask() { 
+    await provider.send("eth_requestAccounts", []);
+    signer = provider.getSigner();
+    console.log("Connected to Metamask with Address: " + signer._address);
+}
