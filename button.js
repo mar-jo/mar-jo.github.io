@@ -1,12 +1,9 @@
 const Web3 = require('web3');
-const web3 = new Web3('http://localhost:8545');
-
-//const contract = new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
+var web3 = new Web3('https://goerli.etherscan.io');
 
 const button = document.getElementById('button');
 button.addEventListener('click', () => {
     contract.methods
-        .doSomething()
-        .send({ from: '0x1234...' })
+        .web3.eth.getBlockNumber()
         .then(console.log);
     });
