@@ -26,25 +26,40 @@
             <div class="row">
                 <div class="col text-center">
                     <div class="btn-group-vertical">
+                        <!-- Connect -->
                         <button type="button" class="btn btn-lg btn-primary" onclick="enableEth()">CONNECT</button>
+
+                        <!-- Get Height -->
                         <div class="input-group">
                             <input type="text" id="blockheight" class="form-control text-center" disabled>
                         </div>
                         <button type="button" class="btn btn-secondary" onclick="getBlockHeight()">HEIGHT</button>
+
+                        <!-- Get GoerliETH Balance -->
                         <div class="input-group">
                             <input type="text" id="ethbalance" class="form-control text-center" disabled>
                         </div>
                         <button type="button" class="btn btn-secondary" onclick="checkEthBalance()">ETH BAL</button>
+
+                        <!-- Get ERC20 Token Balance -->
                         <div class="input-group">
                             <input type="text" id="tokenbalance" maxlength="5" class="form-control text-center" disabled>
                         </div>
                         <button type="button" class="btn btn-secondary" onclick="checkTokenBalance()">TOKEN BAL</button>
+
+                        <!-- Start Transfer -->
                         <button type="button" class="btn btn-secondary" onclick="transferAmount()">TRANSFER</button>
+                        
+                        <!-- Obligatory Meme -->
+                        <div class="card border-0 mt-5" style="width: 18rem;">
+                            <img src="meme.png" class="rounded" alt="Meme">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3">

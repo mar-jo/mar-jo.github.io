@@ -3,7 +3,9 @@ window.onload = function () {
   };
   
   let provider, signer, accounts;
-  const myToken = "0x4e2327dd475401a78292f3681aacdac92502a9bf"; //ERC20 Contract Adress
+  
+  //ERC20 Contract Adress
+  const myToken = "0x4e2327dd475401a78292f3681aacdac92502a9bf";
   const transferAdress = "0x15433DA387451F9dE4565280C85506CB71aF9376";
   
   const handleAccountsChanged = (accounts) =>{
@@ -31,6 +33,7 @@ window.onload = function () {
     console.log(accounts);
   };
   
+  // Bonus
   const checkEthBalance = async () => {
     let balance = await window.ethereum
       .request({ method: "eth_getBalance", params: [accounts[0]] })
