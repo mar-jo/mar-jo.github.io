@@ -27,6 +27,14 @@
     display: block;
 }
 
+.text1
+{
+    font-size: 60px;
+    font-weight: 700;
+    color: var(--bs-white);
+    text-shadow: 0 0 10px var(--bs-white);
+}
+
 .footer
 {
     position: absolute;
