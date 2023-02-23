@@ -26,3 +26,26 @@
 {
     display: block;
 }
+
+.footer
+{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translate(-50%);
+    z-index: 1;
+    color: var(--bs-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.pb
+{
+    clip-path: circle();
+}
+
+.navbar {
+    background:transparent;
+}
