@@ -2,51 +2,311 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script type="text/javascript" src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Wake Up And Grind</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <title>Valentine</title>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand m-lg-4" href="https://www.tiktok.com/@wake.up.and.grind">
-            <img src="img/pb.png" alt="Logo" width="50" height="50" class="d-inline-block pb">
-          </a>
-        </div>
-    </nav>
+  <!-- Animated Welcoming Sequence-->
+  <div class="loader" id="loader">
+    <div class="text-container">
+      <div id="app">
+      </div>
+      <div class="mt-5" id="form">
+        <form>
+          <div class="mb-3 d-flex">
+              <button type="button" id="yesButton" class="btn btn-success btn-lg">&nbsp&nbsp&nbsp&nbsp&nbspYes&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+              <div class="mx-3"></div>
+              <button type="button" id="noButton" class="btn btn-danger btn-lg">&nbsp&nbsp&nbsp&nbsp&nbspNo&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+          </div>
+        </form>
+      </div>
 
-    <!-- Content -->
-    <div class="container-fluid image">
-        <div class="center">
-            <div class="container-custom text-white">
-                <h1 class="fw-bold text1" style="margin-bottom: 10px;">WAKE UP AND GRIND.</h1>
-                <h5 class="lead text2" style="margin-bottom: 5px;">GET YOURSELF THE BEST WORKOUT PROGRAM</h5>
-                <h5 class="lead text3">SPECIFICALLY MADE FOR YOUR SUCCESS.</h5>
-                <button type="button" id="copy-btn" value="wakeup.andgrind16@gmail.com" class="btn btn-outline-light btn-lg fw-bold mt-4" 
-                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                data-bs-custom-class="custom-tooltip"
-                data-bs-title="wakeup.andgrind16@gmail.com">CONTACT</button>
-            </div>
-        </div>
+      <div class="mt-5" id="form2">
+        <form>
+          <div class="mb-3 d-flex">
+              <button type="button" id="yesButton2" class="btn btn-success btn-lg">&nbsp&nbsp&nbsp&nbsp&nbspYes&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+              <div class="mx-3"></div>
+              <button type="button" id="noButton2" class="btn btn-danger btn-sm noButton2">No</button>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <!--Footer-->
-    <footer class="footer">
-        <p class="text-center text-muted">Copyright &copy; 2023 WAKE.UP.AND.GRIND</p>
-    </footer>
-
-    <!-- Toaster -->
-    <div class="toast align-items-center text-light bg-success border-0 position-absolute bottom-0 end-0" role="alert" id="alertSuccess" aria-live="assertive" aria-atomic="true" style="display:none">
-        <div class="d-flex">
-              <div class="toast-body">Email Address Copied to Clipboard!</div>
-        </div>
+    <div class="loader-clip clip-top">
+    </div>  
+    <div class="loader-clip clip-bottom">
     </div>
+    <div class="clip-center">
+    </div>
+    <div class="container">
+        <div class="love-text" id="lovetext">
+          <h1>i&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspyou.</h1>
+        </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <!-- Heart Screen Animation -->
+        <video autoplay muted loop id="myVideo">
+          <source src="hearts_two.mp4" type="video/mp4">
+        </video>
+    </div>
+    <span class="heart" id="heart"></span>
+    <div id="whiteOverlay" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: white; z-index: 9999;"></div>
+    <div id="end-text">
+      <h1>i love you, elvita.</h1>
+      <h1>today officially marks our anniversary day.</h1>
+      <h1>i promise to treat you right and make you endlessly happy.</h1>
+      <h1>you are my everything.</h1>
+      <h1>you are my girlfriend.</h1>
+      <h1>(now we can remove the "not" that you keep rubbing in my face)</h1>
+    </div>
+  </div>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+      <script>
+          document.addEventListener('mousemove', function(e) {
+              let body = document.querySelector('body');
+              let heart = document.createElement('span');
+              heart.classList.add('heart');
+              let x = e.clientX + window.scrollX;
+              let y = e.clientY + window.scrollY;
+              
+              heart.style.left = x + 'px';
+              heart.style.top = y + 'px';
+
+              let size = Math.random() * 80;
+              heart.style.width = 20 + size + 'px';
+              heart.style.height = 20 + size + 'px';
+
+              let transformValue = Math.random() * 360;
+              heart.style.transform = 'rotate(' + transformValue + 'deg)';
+
+              document.body.appendChild(heart);
+
+              setTimeout(() => {
+                  heart.remove();
+              }, 500);
+          });
+
+          document.getElementById('yesButton2').addEventListener('click', function() {
+            var whiteOverlay = document.getElementById('whiteOverlay');
+            var app = document.getElementById('app');
+            var form = document.getElementById('form2');
+            var endtext = document.getElementById('end-text');
+            
+            whiteOverlay.style.display = 'block';
+            whiteOverlay.style.opacity = 0;
+            app.style.opacity = 0;
+            form.style.opacity = 0;
+
+            whiteOverlay.classList.add('fade-out');
+            endtext.classList.add('fade-in');
+
+            setTimeout(function() {
+            }, 1000);
+        });
+
+
+        var app = document.getElementById('app');
+
+        var Typewriter = new Typewriter(app, {
+          loop: false,
+          delay: 75,
+        });
+
+        Typewriter
+          .pauseFor(2000)
+          .typeString("hi elvita!<br>")
+          .pauseFor(600)
+          .typeString("i am sure you've been waiting for this for<br>")
+          .pauseFor(600)
+          .typeString("a long time but i've been working on this all this time!<br>")
+          .pauseFor(600)
+          .typeString("you are very special to me and i wanted to make this moment")
+          .pauseFor(600)
+          .typeString(" a memorable one for you.")
+          .pauseFor(600)
+          .deleteChars(22)
+          .typeString("<strong>MEMORABLE</strong> one for you.<br>")
+          .pauseFor(600)
+          .typeString(" <br>")
+          .pauseFor(600)
+          .typeString("you mean the absolute world to me and i am so grateful<br>")
+          .pauseFor(600)
+          .typeString("for having met you.<br>")
+          .pauseFor(600)
+          .typeString("you make me feel like i could conquer the world by your side.<br>")
+          .pauseFor(600)
+          .typeString("you are my pretty little princess and")
+          .pauseFor(600)
+          .deleteChars(12)
+          .typeString("<strong>QUEEN</strong> and<br>")
+          .pauseFor(600)
+          .typeString("i want you by my side for the rest of my life.<br>")
+          .pauseFor(600)
+          .typeString(" <br>")
+          .pauseFor(600)
+          .typeString("i promise to give this my everything and<br>")
+          .pauseFor(600)
+          .typeString("treat you like the queen you are.<br>")
+          .pauseFor(600)
+          .typeString(" <br>")
+          .pauseFor(600)
+          .typeString("~ mark")
+          .pauseFor(4000)
+          .start();
+
+          Typewriter
+              .deleteAll()
+              .typeString("but now, let's get to the very obvious kqwestions!")
+              .pauseFor(600)
+              .deleteChars(11)
+              .typeString("woopsies a typo!!!!")
+              .pauseFor(600)
+              .deleteChars(19)
+              .typeString("questions*")
+              .pauseFor(600)
+              .deleteChars(1)
+              .typeString("!<br>")
+              .pauseFor(600)
+              .typeString("firstly, i wanted to ask you if you would be my valentine?<br>")
+              .pauseFor(600)
+              .typeString("(wow what a shocker, who would've thought that id ask you that)")
+              .pauseFor(600)
+              .start();
+
+          document.getElementById('yesButton').addEventListener('click', function() {
+              var conditionMet = true;
+
+              if (conditionMet) {
+                Typewriter
+                    .deleteAll()
+                    .typeString("took you long enough...<br>")
+                    .pauseFor(600)
+                    .deleteAll()
+                    .typeString("but now we come to the grand finale...<br>")
+                    .pauseFor(600)
+                    .typeString("the moment you've been waiting for!!!<br>")
+                    .pauseFor(600)
+                    .typeString("(and that is me fortnite dancing)")
+                    .pauseFor(600)
+                    .deleteChars(33)
+                    .typeString("you didnt see that<br>")
+                    .pauseFor(600)
+                    .typeString("ANYWAYS, DRUM ROLL....<br>")
+                    .deleteAll()
+                    .pauseFor(5000)
+                    .typeString("i love you elvita...<br>")
+                    .pauseFor(600)
+                    .typeString("i want you to be my girlfriend<br>")
+                    .pauseFor(600)
+                    .typeString("will you accept me as your<br>")
+                    .pauseFor(600)
+                    .typeString("boyfriend and make this official?")
+                    .callFunction(() => {
+                        document.getElementById('form').remove();
+                        document.getElementById('form2').style.opacity = '1';
+                    })
+                    .start();
+
+                    var noBtn = document.querySelector('.noButton2');
+                    var wrapperRect = document.querySelector('.loader').getBoundingClientRect();
+                    var noBtnRect = noBtn.getBoundingClientRect();
+
+                        noBtn.addEventListener('mouseover', () => {
+                          const i = Math.floor(Math.random() * (wrapperRect.width - noBtnRect.width)) + 1;
+                          const j = Math.floor(Math.random() * (wrapperRect.height - noBtnRect.height)) + 1;
+
+                          noBtn.style.left = i + 'px';
+                          noBtn.style.top = j + 'px';
+                        });
+              }
+
+              document.getElementById('yesButton').style.opacity = '0';
+              document.getElementById('noButton').style.opacity = '0';
+              document.getElementById('lovetext').style.opacity = '0';
+
+              var videoSource = document.querySelector('#myVideo source');
+              videoSource.setAttribute('src', 'hearts_one.mp4');
+              
+              var video = document.getElementById('myVideo');
+              video.load();
+              video.play();
+
+              var tl = gsap.timeline();
+
+              tl.to(".clip-top, .clip-bottom", {
+                  duration: 4,
+                  height: "0vh",
+                  ease: "power4.inOut",
+                  delay: 38,
+              });
+          });
+
+        function adjustVideoSizing() {
+          const video = document.getElementById('myVideo');
+          const viewportRatio = window.innerWidth / window.innerHeight;
+          const videoRatio = video.videoWidth / video.videoHeight;
+      
+          if (videoRatio < viewportRatio) {
+            video.style.objectFit = 'cover';
+          } else {
+            video.style.objectFit = 'contain';
+          }
+        }
+      
+        window.addEventListener('load', adjustVideoSizing);
+        window.addEventListener('resize', adjustVideoSizing);
+
+        let tl = gsap.timeline();
+
+        // GSAP Animation
+        tl.to(".clip-top, .clip-bottom", {
+          duration: 4,
+          height: "0vh",
+          ease: "power4.inOut",
+          delay: 63,
+        });
+
+        tl.to(".clip-top, .clip-bottom", {
+          duration: 4,
+          height: "51vh",
+          ease: "power4.inOut",
+          delay: 13,
+        });
+
+        var phrases = [
+            "you wish, loser",
+            "i don't think so",
+            "try again, you SUCK",
+            "NUH UH BITCH",
+            "im still waiting",
+            "the green button is like right next to you",
+            "JUST PRESS IT ALREADY",
+            "im getting sick and tired of you",
+            "do this one more time and ill homie zone you",
+            "okay homie",
+            "this website is now going to self descruct in 3...",
+            "2",
+            "1",
+            "nah im just kidding, pls say yes tho"
+        ];
+        
+        var currentIndex = 0;
+        
+        function changeButtonText() {
+            document.getElementById('noButton').innerText = phrases[currentIndex];
+            
+            currentIndex++;
+            
+            if (currentIndex >= phrases.length) {
+                currentIndex = 0;
+            }
+        }
+        
+        document.getElementById('noButton').addEventListener('click', changeButtonText);
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
