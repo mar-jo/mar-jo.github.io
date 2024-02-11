@@ -12,18 +12,16 @@ body {
 }
 
 .end-text {
+  font-size: 1em;
+  letter-spacing: 4px;
+  font-family: monospace;
+  color: black;
   opacity: 0;
-  z-index: 10002;
+  position: fixed;
+  z-index: 9999;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.end-text h1 {
-  font-size: 1.5em;
-  letter-spacing: 5px;
-  font-family: monospace;
-  color: black;
 }
 
 .fade-out {

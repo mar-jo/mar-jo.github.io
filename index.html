@@ -29,7 +29,7 @@
           <div class="mb-3 d-flex">
               <button type="button" id="yesButton2" class="btn btn-success btn-lg">&nbsp&nbsp&nbsp&nbsp&nbspYes&nbsp&nbsp&nbsp&nbsp&nbsp</button>
               <div class="mx-3"></div>
-              <button type="button" id="noButton2" class="btn btn-danger btn-sm noButton2">No</button>
+              <button type="button" id="noButton2" class="btn btn-danger btn-sm noButton2" disabled>No</button>
           </div>
         </form>
       </div>
@@ -56,7 +56,7 @@
     <div id="end-text">
       <h1>i love you, elvita.</h1>
       <h1>today officially marks our anniversary day.</h1>
-      <h1>i promise to treat you right and make you endlessly happy.</h1>
+      <h1>i promise to treat you right and make you happy.</h1>
       <h1>you are my everything.</h1>
       <h1>you are my girlfriend.</h1>
       <h1>(now we can remove the "not" that you keep rubbing in my face)</h1>
@@ -97,6 +97,10 @@
             
             whiteOverlay.style.display = 'block';
             whiteOverlay.style.opacity = 0;
+
+            endtext.style.display = 'block';
+            endtext.style.opacity = 0;
+
             app.style.opacity = 0;
             form.style.opacity = 0;
 
@@ -209,8 +213,9 @@
                         document.getElementById('form2').style.opacity = '1';
                     })
                     .start();
+              }
 
-                    var noBtn = document.querySelector('.noButton2');
+              var noBtn = document.querySelector('.noButton2');
                     var wrapperRect = document.querySelector('.loader').getBoundingClientRect();
                     var noBtnRect = noBtn.getBoundingClientRect();
 
@@ -221,7 +226,6 @@
                           noBtn.style.left = i + 'px';
                           noBtn.style.top = j + 'px';
                         });
-              }
 
               document.getElementById('yesButton').style.opacity = '0';
               document.getElementById('noButton').style.opacity = '0';
